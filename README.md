@@ -1,61 +1,63 @@
-# API de Integração com BrasilAPI
+# Integration API with BrasilAPI
 
-Essa API permite a integração com a BrasilAPI para buscar informações sobre bancos e endereços por CEP.
+This API enables integration with BrasilAPI to retrieve information about banks and addresses by ZIP code.
 
 ## Endpoints
 
-### Buscar Todos os Bancos
+### List Banks
 
-Retorna uma lista de todos os bancos disponíveis.
+Returns a list of all available banks.
 
-- **Endpoint:** `/api/bancos`
-- **Método:** `GET`
-- **Retorno:** Lista de objetos representando informações sobre os bancos.
+* **Endpoint:** `/api/banks`
+* **Method:** `GET`
+* **Response:** A list of objects representing the banks.
 
-### Buscar Banco por Código
+### Get Bank by ID
 
-Retorna informações de um banco específico com base no seu código.
+Returns information about a specific bank based on its ID.
 
-- **Endpoint:** `/api/bancos/{codigo}`
-- **Método:** `GET`
-- **Parâmetros:**
-  - `codigo`: O código do banco desejado.
-- **Retorno:** Objeto representando informações sobre o banco correspondente ao código fornecido.
+* **Endpoint:** `/api/banks/{id}`
+* **Method:** `GET`
+* **Parameters:**
 
-### Buscar Endereço por CEP
+  * `id`: The unique identifier of the desired bank.
+* **Response:** An object representing the bank corresponding to the provided ID.
 
-Retorna informações de endereço com base no CEP fornecido.
+### Get Address by ZIP Code
 
-- **Endpoint:** `/api/enderecos/busca/{cep}`
-- **Método:** `GET`
-- **Parâmetros:**
-  - `cep`: O CEP para o qual deseja-se obter informações de endereço.
-- **Retorno:** Objeto representando informações sobre o endereço correspondente ao CEP fornecido.
+Returns address information based on the provided ZIP code.
 
-## Tecnologias Utilizadas
-- .NET 8
-- C#
-- Automapper
-- DTOs
-- Interfaces
-- Models
-- Services
-- Swagger
-- Injeção de Dependência
-- Classe Genérica de Response
+* **Endpoint:** `/api/addresses/{zip}`
+* **Method:** `GET`
+* **Parameters:**
 
-## Utilização
+  * `zip`: The ZIP code for which you want to retrieve address information.
+* **Response:** An object representing the address corresponding to the provided ZIP code.
 
-Para utilizar essa API, você pode realizar requisições HTTP para os endpoints mencionados acima. Aqui está um exemplo usando cURL:
+## Technologies Used
+
+* .NET 8
+* C#
+* Automapper
+* DTOs
+* Interfaces
+* Models
+* Services
+* Swagger
+* Dependency Injection
+* Generic Response Class
+
+## Usage
+
+To use this API, you can make HTTP requests to the endpoints mentioned above. Here’s an example using cURL:
 
 ```bash
-# Buscar todos os bancos
-curl -X GET https://sua-api.com/api/bancos
+# List banks
+curl -X GET https://your-api.com/api/banks
 
-# Buscar banco por código
-curl -X GET https://sua-api.com/api/bancos/123
+# Get bank by ID
+curl -X GET https://your-api.com/api/banks/123
 
-# Buscar endereço por CEP
-curl -X GET https://sua-api.com/api/enderecos/busca/CEP_DESEJADO
-
-
+# Get address by ZIP code
+curl -X GET https://your-api.com/api/addresses/12345678
+```
