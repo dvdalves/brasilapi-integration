@@ -1,7 +1,7 @@
-﻿using IntegracaoBrasilApi.Interfaces;
-using IntegracaoBrasilApi.Services;
+﻿using BrasilApiIntegration.Interfaces;
+using BrasilApiIntegration.Services;
 
-namespace IntegracaoBrasilApi.Configurations
+namespace BrasilApiIntegration.Configurations
 {
     public static class DIConfiguration
     {

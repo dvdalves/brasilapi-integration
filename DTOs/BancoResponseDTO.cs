@@ -1,4 +1,4 @@
-﻿namespace IntegracaoBrasilApi.DTOs
+﻿namespace BrasilApiIntegration.DTOs
 {
     public class BancoResponseDTO
     {

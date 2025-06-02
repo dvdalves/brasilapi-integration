@@ -1,10 +1,10 @@
-﻿using IntegracaoBrasilApi.DTOs;
-using IntegracaoBrasilApi.Interfaces;
-using IntegracaoBrasilApi.Models;
+﻿using BrasilApiIntegration.DTOs;
+using BrasilApiIntegration.Interfaces;
+using BrasilApiIntegration.Models;
 using System.Dynamic;
 using System.Text.Json;
 
-namespace IntegracaoBrasilApi.Services
+namespace BrasilApiIntegration.Services
 {
     public class BrasilApiService : IBrasilApi
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using IntegracaoBrasilApi.DTOs;
-using IntegracaoBrasilApi.Models;
+using BrasilApiIntegration.DTOs;
+using BrasilApiIntegration.Models;
 
-namespace IntegracaoBrasilApi.Configurations
+namespace BrasilApiIntegration.Configurations
 {
     public class AutoMapper : Profile
     {

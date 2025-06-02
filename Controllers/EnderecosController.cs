@@ -1,8 +1,8 @@
-﻿using IntegracaoBrasilApi.Interfaces;
+﻿using BrasilApiIntegration.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace IntegracaoBrasilApi.Controllers
+namespace BrasilApiIntegration.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]

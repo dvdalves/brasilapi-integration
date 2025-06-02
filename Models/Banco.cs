@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace IntegracaoBrasilApi.Models
+namespace BrasilApiIntegration.Models
 {
     public class Banco
     {

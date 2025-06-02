@@ -1,4 +1,4 @@
-using IntegracaoBrasilApi.Configurations;
+using BrasilApiIntegration.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 

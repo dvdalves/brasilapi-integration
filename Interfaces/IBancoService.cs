@@ -1,7 +1,7 @@
-﻿using IntegracaoBrasilApi.DTOs;
-using IntegracaoBrasilApi.Models;
+﻿using BrasilApiIntegration.DTOs;
+using BrasilApiIntegration.Models;
 
-namespace IntegracaoBrasilApi.Interfaces
+namespace BrasilApiIntegration.Interfaces
 {
     public interface IBancoService
     {

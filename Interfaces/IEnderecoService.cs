@@ -1,6 +1,6 @@
-﻿using IntegracaoBrasilApi.DTOs;
+﻿using BrasilApiIntegration.DTOs;
 
-namespace IntegracaoBrasilApi.Interfaces
+namespace BrasilApiIntegration.Interfaces
 {
     public interface IEnderecoService
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace IntegracaoBrasilApi.DTOs
+namespace BrasilApiIntegration.DTOs
 {
     public class EnderecoResponseDTO
     {

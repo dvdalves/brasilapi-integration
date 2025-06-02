@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using IntegracaoBrasilApi.DTOs;
-using IntegracaoBrasilApi.Interfaces;
-using IntegracaoBrasilApi.Models;
+using BrasilApiIntegration.DTOs;
+using BrasilApiIntegration.Interfaces;
+using BrasilApiIntegration.Models;
 
-namespace IntegracaoBrasilApi.Services
+namespace BrasilApiIntegration.Services
 {
     public class BancoService : IBancoService
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using IntegracaoBrasilApi.DTOs;
-using IntegracaoBrasilApi.Interfaces;
+using BrasilApiIntegration.DTOs;
+using BrasilApiIntegration.Interfaces;
 
-namespace IntegracaoBrasilApi.Services
+namespace BrasilApiIntegration.Services
 {
     public class EnderecoService : IEnderecoService
     {
