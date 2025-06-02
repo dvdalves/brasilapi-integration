@@ -36,7 +36,7 @@ Returns address information based on the provided ZIP code.
 
 ## Technologies Used
 
-* .NET 8
+* .NET 9
 * C#
 * Automapper
 * DTOs
