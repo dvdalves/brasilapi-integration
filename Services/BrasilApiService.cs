@@ -4,80 +4,79 @@ using BrasilApiIntegration.Models;
 using System.Dynamic;
 using System.Text.Json;
 
-namespace BrasilApiIntegration.Services
+namespace BrasilApiIntegration.Services;
+
+public class BrasilApiService : IBrasilApi
 {
-    public class BrasilApiService : IBrasilApi
+    public async Task<ResponseGenericoDTO<Bank>> GetBankByCode(string bankCode)
     {
-        public async Task<ResponseGenericoDTO<Banco>> BuscarBancoPorCodigo(string codigo)
+        var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/banks/v1/{bankCode}");
+        var response = new ResponseGenericoDTO<Bank>();
+        using (var client = new HttpClient())
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/banks/v1/{codigo}");
-            var response = new ResponseGenericoDTO<Banco>();
-            using (var client = new HttpClient())
+            var responseBrasilApi = await client.SendAsync(request);
+            var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
+            var objResponse = JsonSerializer.Deserialize<Bank>(responseString);
+
+            if (responseBrasilApi.IsSuccessStatusCode)
             {
-                var responseBrasilApi = await client.SendAsync(request);
-                var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
-                var objResponse = JsonSerializer.Deserialize<Banco>(responseString);
-
-                if (responseBrasilApi.IsSuccessStatusCode)
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.DadosRetorno = objResponse;
-                }
-                else
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseString);
-                }
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ReturnData = objResponse;
             }
-            return response;
+            else
+            {
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ErrorDetails = JsonSerializer.Deserialize<ExpandoObject>(responseString);
+            }
         }
+        return response;
+    }
 
-        public async Task<ResponseGenericoDTO<Endereco>> BuscarEnderecoPorCep(string cep)
+    public async Task<ResponseGenericoDTO<Address>> GetAddressByZipCode(string cep)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/cep/v1/{cep}");
+        var response = new ResponseGenericoDTO<Address>();
+        using (var client = new HttpClient())
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/cep/v1/{cep}");
-            var response = new ResponseGenericoDTO<Endereco>();
-            using (var client = new HttpClient())
+            var responseBrasilApi = await client.SendAsync(request);
+            var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
+            var objResponse = JsonSerializer.Deserialize<Address>(responseString);
+
+            if (responseBrasilApi.IsSuccessStatusCode)
             {
-                var responseBrasilApi = await client.SendAsync(request);
-                var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
-                var objResponse = JsonSerializer.Deserialize<Endereco>(responseString);
-
-                if (responseBrasilApi.IsSuccessStatusCode)
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.DadosRetorno = objResponse;
-                }
-                else
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseString);
-                }
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ReturnData = objResponse;
             }
-            return response;
+            else
+            {
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ErrorDetails = JsonSerializer.Deserialize<ExpandoObject>(responseString);
+            }
         }
+        return response;
+    }
 
-        public async Task<ResponseGenericoDTO<List<Banco>>> BuscarTodosBancos()
+    public async Task<ResponseGenericoDTO<List<Bank>>> GetAll()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/banks/v1");
+        var response = new ResponseGenericoDTO<List<Bank>>();
+        using (var client = new HttpClient())
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/banks/v1");
-            var response = new ResponseGenericoDTO<List<Banco>>();
-            using (var client = new HttpClient())
-            {
-                var responseBrasilApi = await client.SendAsync(request);
-                var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
-                var objResponse = JsonSerializer.Deserialize<List<Banco>>(responseString);
+            var responseBrasilApi = await client.SendAsync(request);
+            var responseString = await responseBrasilApi.Content.ReadAsStringAsync();
+            var objResponse = JsonSerializer.Deserialize<List<Bank>>(responseString);
 
-                if (responseBrasilApi.IsSuccessStatusCode)
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.DadosRetorno = objResponse;
-                }
-                else
-                {
-                    response.CodigoHttp = responseBrasilApi.StatusCode;
-                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseString);
-                }
+            if (responseBrasilApi.IsSuccessStatusCode)
+            {
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ReturnData = objResponse;
             }
-            return response;
+            else
+            {
+                response.HttpStatus = responseBrasilApi.StatusCode;
+                response.ErrorDetails = JsonSerializer.Deserialize<ExpandoObject>(responseString);
+            }
         }
+        return response;
     }
 }

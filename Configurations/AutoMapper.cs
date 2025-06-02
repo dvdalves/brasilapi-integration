@@ -2,15 +2,14 @@
 using BrasilApiIntegration.DTOs;
 using BrasilApiIntegration.Models;
 
-namespace BrasilApiIntegration.Configurations
+namespace BrasilApiIntegration.Configurations;
+
+public class AutoMapper : Profile
 {
-    public class AutoMapper : Profile
+    public AutoMapper()
     {
-        public AutoMapper()
-        {
-            CreateMap<Endereco, EnderecoResponseDTO>().ReverseMap();
-            CreateMap<ResponseGenericoDTO<Endereco>, ResponseGenericoDTO<EnderecoResponseDTO>>().ReverseMap();
-            CreateMap<ResponseGenericoDTO<EnderecoResponseDTO>, ResponseGenericoDTO<Endereco>>().ReverseMap();
-        }
+        CreateMap<Address, AddressResponseDTO>().ReverseMap();
+        CreateMap<ResponseGenericoDTO<Address>, ResponseGenericoDTO<AddressResponseDTO>>().ReverseMap();
+        CreateMap<ResponseGenericoDTO<AddressResponseDTO>, ResponseGenericoDTO<Address>>().ReverseMap();
     }
 }
